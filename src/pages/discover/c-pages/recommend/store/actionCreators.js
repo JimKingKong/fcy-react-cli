@@ -7,7 +7,6 @@ export const changeBannerAction = (res)=>({
 export const getBannerAction = (params)=>{
   return (dispatch,getState)=>{
     getBanner(params).then(res=>{
-      console.log(res,'res')
       if(res.code === 200 ){
         const data = res.banners
         dispatch(changeBannerAction(data))

@@ -1,7 +1,9 @@
 import React, { memo, useState, useEffect, useRef, useCallback } from 'react';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { getSongDetailAction } from "../store/actionCreators";
 import { Slider } from 'antd';
 import { NavLink } from 'react-router-dom';
+// import { getSongDetail } from "@/services/player";
 import {
   PlaybarWrapper,
   Control,
@@ -10,7 +12,11 @@ import {
 } from './style';
 
 export default memo(function HYAppPlayerBar() {
- 
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getSongDetailAction({ids:'167876'}))
+  }, [dispatch])
+
   return (
     <PlaybarWrapper className="sprite_player">
       <div className="content wrap-v2">

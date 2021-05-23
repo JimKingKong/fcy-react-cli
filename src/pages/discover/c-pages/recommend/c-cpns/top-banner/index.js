@@ -12,7 +12,6 @@ const TopBanner = memo(function () {
   }, [dispatch])
   const ref = useRef()
   const bannerList = useSelector(state => state.getIn(['recommend','topBanners']),shallowEqual) || []
-  console.log(bannerList)
   const beforeChange = useCallback(
     (from,to) => {
       setCurrentIndex(to)
@@ -26,8 +25,8 @@ const TopBanner = memo(function () {
         <BannerLeft>
           <Carousel autoplay effect="fade" ref={ref} beforeChange={beforeChange}>
             {bannerList.map((item)=>{
-              return <div class="banner-item">
-                <img class="image" alt={1} src={item.imageUrl}></img>
+              return <div key={item.imageUrl} className="banner-item">
+                <img className="image" alt={1} src={item.imageUrl}></img>
                 {item.imageUrl}
               </div>
             })}
