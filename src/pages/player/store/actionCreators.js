@@ -9,7 +9,7 @@ export const getSongDetailAction = (params) =>{
     getSongDetail(params).then(res=>{
       if(res.code === 200){
         
-        console.log(res, 'rdsdata')
+        // console.log(res, 'rdsdata')
         dispatch(changeSongDetail(res.songs[0]))
       }
 

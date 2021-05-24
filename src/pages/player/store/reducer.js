@@ -8,8 +8,6 @@ export const reducer = (store = defaultStore,action) =>{
   switch (action.type) {
     case CHANGE_CURRENT_SONG:
       return store.set('songDetail',action.data)
-      break;
-  
     default:
       return store
   }
